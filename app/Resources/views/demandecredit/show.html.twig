@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Demandecredit</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Iddemandecredit</th>
+                <td>{{ demandeCredit.idDemandeCredit }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ demandeCredit.etat }}</td>
+            </tr>
+            <tr>
+                <th>Montant</th>
+                <td>{{ demandeCredit.montant }}</td>
+            </tr>
+            <tr>
+                <th>Dur?e</th>
+                <td>{{ demandeCredit.durã©e }}</td>
+            </tr>
+            <tr>
+                <th>Datedemande</th>
+                <td>{% if demandeCredit.dateDemande %}{{ demandeCredit.dateDemande|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dateacceptation</th>
+                <td>{% if demandeCredit.dateAcceptation %}{{ demandeCredit.dateAcceptation|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('demandecredit_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('demandecredit_edit', { 'idDemandeCredit': demandeCredit.idDemandeCredit }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

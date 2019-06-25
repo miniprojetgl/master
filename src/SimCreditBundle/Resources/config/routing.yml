@@ -1,0 +1,11 @@
+cre_credit:
+    path:     /CreCredit
+    defaults: { _controller: SimCreditBundle:Credit:new }
+
+cre_dem_credit:
+    path:     /CreDemCredit{montant,duree,idCredit}
+    defaults: { _controller: SimCreditBundle:DemandeCredit:new }
+
+sim_credit_simulation:
+    path:     /SimCredit
+    defaults: { _controller: SimCreditBundle:DemandeCredit:simuler }
