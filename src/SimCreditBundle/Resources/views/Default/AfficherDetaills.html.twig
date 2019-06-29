@@ -1,0 +1,46 @@
+{%  extends "base.html.twig"%}
+{% block content %}
+    <div class="container">
+
+
+
+        <div class="col-lg-3">
+
+
+
+
+        </div>
+        <div class="row">
+
+            <div class="col-lg-6">
+
+                <h1 class="my-8">Les Demande de Crédits </h1>
+                <table  border="2" >
+                    <tr>
+
+                        <td>Lien Pièce Joint</td>
+                        <td>Accepter</td>
+                        <td>Refuser</td>
+
+                    </tr>
+                    {% for i in resultat %}
+                        <tr>
+
+                            <td>{{ i.urlPj }}</td>
+
+                            <td><button type="button"><a href="{{ path('Acc_Demande_credit',{
+                                        'id':i.idDemCredit,
+                                    })}}">Accepter</a></button></td>
+                            <td><button type="button"><a href="{{ path('Refus_Demande_credit',{
+                                        'id':i.idDemCredit,
+                                    })}}">Refuser</a></button></td>
+
+                        </tr>
+                    {% endfor %}
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

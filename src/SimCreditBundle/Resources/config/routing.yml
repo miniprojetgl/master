@@ -1,0 +1,7 @@
+sim_credit_homepage:
+    path:     /
+    defaults: { _controller: SimCreditBundle:DemandeCredit:new }
+
+sim_credit_simulation:
+    path:     /simulation
+    defaults: { _controller: SimCreditBundle:DemandeCredit:new }

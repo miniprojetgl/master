@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Credits list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Idcredit</th>
+                <th>Libelle</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for credit in credits %}
+            <tr>
+                <td><a href="{{ path('credit_show', { 'idCredit': credit.idCredit }) }}">{{ credit.idCredit }}</a></td>
+                <td>{{ credit.libelle }}</td>
+                <td>{{ credit.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('credit_show', { 'idCredit': credit.idCredit }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('credit_edit', { 'idCredit': credit.idCredit }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('credit_new') }}">Create a new credit</a>
+        </li>
+    </ul>
+{% endblock %}

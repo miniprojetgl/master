@@ -1,0 +1,92 @@
+{%  extends "base.html.twig"%}
+{% block content %}
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-3">
+
+                <h1 class="my-4">Simulation de credit</h1>
+                <div class="list-group">
+                    <a href="#" class="list-group-item">Option 1</a>
+                    <a href="#" class="list-group-item">Option 2</a>
+                    <a href="#" class="list-group-item">Option 3</a>
+                </div>
+
+            </div>
+            <!-- /.col-lg-3 -->
+
+            <div class="col-lg-9">
+
+                <div align="center">
+
+
+                    <h2 align="center">Liste des utilisateurs </h2>
+
+                    <table border="2" align="center">
+
+
+                        <tr>
+                            <th>Id</th>
+                            <th>Type</th>
+                            <th>Prenom</th>
+                            <th>Nom</th>
+                            <th>Cin</th>
+                            <th>Date Naissance</th>
+                            <th>Addresse e-mail</th>
+                            <th>Address</th>
+                            <th>Tel</th>
+                            <th>Pseudo</th>
+                            <th>Mot_de_passe</th>
+                            <th> </th>
+                            <th> </th>
+                        </tr>
+
+                        {% for i in Utilisateur %}
+                            <tr>
+
+                                <td>{{ i.idUtilisateur }}</td>
+
+                                <td>{{ i.type }}</td>
+
+                                <td>{{ i.prenom }}</td>
+
+                                <td>{{ i.nom }}</td>
+
+                                <td>{{ i.cin }}</td>
+
+                                <td>{% if i.dateNaiss %}{{ i.dateNaiss|date('Y-m-d') }}{% endif %}</td>
+
+                                <td>{{ i.addressMail }}</td>
+
+                                <td>{{ i.address }}</td>
+
+                                <td>{{ i.tel }}</td>
+
+                                <td>{{ i.pseudo }}</td>
+
+                                <td>{{ i.motdepasse }}</td>
+
+                                <td> <a href="{{ path('Utilisateur_edit',{'idUtilisateur':i.idUtilisateur})}}"> Modifier </a> </td>
+                                <td style="text-align: center"><a href="{{ path('Utilisateur_remove',{'idUtilisateur':i.idUtilisateur})}}">Supprimer</a></td>
+
+                            </tr>
+                        {% endfor %}
+
+                    </table>
+
+
+
+                </div>
+
+            </div>
+            <!-- /.col-lg-9 -->
+        </div>
+        <!-- /.row -->
+    </div>
+{% endblock %}
+
+
+
+
+

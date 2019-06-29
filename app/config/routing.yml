@@ -1,0 +1,15 @@
+sim_credit_demande_credit:
+    resource: "@SimCreditBundle/Controller/DemandeCreditController.php"
+    type:     annotation
+
+sim_credit_credit:
+    resource: "@SimCreditBundle/Controller/CreditController.php"
+    type:     annotation
+
+sim_credit:
+    resource: "@SimCreditBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

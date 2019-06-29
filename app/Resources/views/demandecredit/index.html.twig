@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Demandecredits list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Iddemandecredit</th>
+                <th>Etat</th>
+                <th>Montant</th>
+                <th>Dur?e</th>
+                <th>Datedemande</th>
+                <th>Dateacceptation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for demandeCredit in demandeCredits %}
+            <tr>
+                <td><a href="{{ path('demandecredit_show', { 'idDemandeCredit': demandeCredit.idDemandeCredit }) }}">{{ demandeCredit.idDemandeCredit }}</a></td>
+                <td>{{ demandeCredit.etat }}</td>
+                <td>{{ demandeCredit.montant }}</td>
+                <td>{{ demandeCredit.durã©e }}</td>
+                <td>{% if demandeCredit.dateDemande %}{{ demandeCredit.dateDemande|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if demandeCredit.dateAcceptation %}{{ demandeCredit.dateAcceptation|date('Y-m-d') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('demandecredit_show', { 'idDemandeCredit': demandeCredit.idDemandeCredit }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('demandecredit_edit', { 'idDemandeCredit': demandeCredit.idDemandeCredit }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('demandecredit_new') }}">Create a new demandeCredit</a>
+        </li>
+    </ul>
+{% endblock %}

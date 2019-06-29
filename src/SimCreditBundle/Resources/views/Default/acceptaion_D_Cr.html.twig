@@ -1,0 +1,39 @@
+{%  extends "base.html.twig"%}
+{% block content %}
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-3">
+
+
+
+
+            </div>
+            <!-- /.col-lg-3 -->
+
+            <div class="col-lg-9">
+
+                <div align="center">
+                    <br/>
+                    <h1 style="text-align: center">Resultat d'acceptation de Crédit</h1>
+                    <br/>
+                    <p>La demande de crédit suivante  a été <b>Accepté <b>: <br>
+                    <table border="2">
+                        <tr>
+                            <td> {{ resultat.dateDemande |date('d-m-Y') }}</td>
+                            <td>{{ resultat.etat }}</td>
+                            <td>{{ resultat.montant }}</td>
+                            <td>{{ resultat.duree }}</td>
+
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+            <!-- /.col-lg-9 -->
+        </div>
+        <!-- /.row -->
+    </div>
+{% endblock %}
+

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Utilisateurs list</h1>
+    <form>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Idutilisateur</th>
+                <th>Type</th>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Cin</th>
+                <th>Datenaiss</th>
+                <th>Addressmail</th>
+                <th>Address</th>
+                <th>Tel</th>
+                <th>Pseudo</th>
+                <th>Motdepasse</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for utilisateur in utilisateurs %}
+            <tr>
+                <td><a href="{{ path('utilisateur_show', { 'idUtilisateur': utilisateur.idUtilisateur }) }}">{{ utilisateur.idUtilisateur }}</a></td>
+                <td>{{ utilisateur.type }}</td>
+                <td>{{ utilisateur.prenom }}</td>
+                <td>{{ utilisateur.nom }}</td>
+                <td>{{ utilisateur.cin }}</td>
+                <td>{% if utilisateur.dateNaiss %}{{ utilisateur.dateNaiss|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ utilisateur.addressMail }}</td>
+                <td>{{ utilisateur.address }}</td>
+                <td>{{ utilisateur.tel }}</td>
+                <td>{{ utilisateur.pseudo }}</td>
+                <td>{{ utilisateur.motdepasse }} </td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('utilisateur_show', { 'idUtilisateur': utilisateur.idUtilisateur }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('utilisateur_edit', { 'idUtilisateur': utilisateur.idUtilisateur }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</form>
+
+
+    <ul>
+        <li>
+            <a href="{{ path('utilisateur_new') }}">Create a new utilisateur</a>
+        </li>
+    </ul>
+{% endblock %}
